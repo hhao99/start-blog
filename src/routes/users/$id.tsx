@@ -14,5 +14,8 @@ function RouteComponent() {
     const id = Number.parseInt(Route.useParams().id)
     const query = useSuspenseQuery(userQueryOptions(id))
     const user = query.data
-  return <div>Hello {user?.name}!</div>
+  return <div>
+    <h3>Hello { user?.name }!</h3>
+    <h5>{user?.email}</h5>
+  </div>
 }
