@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
 import { useForm } from '@tanstack/react-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { type NewUser } from '#/db/schema'
@@ -36,6 +37,7 @@ function RouteComponent() {
     })
   return <div>
     <h1>New User form</h1>
+    
     <div>
         <form onSubmit={e=> {
             e.preventDefault()
@@ -48,6 +50,8 @@ function RouteComponent() {
                 children={ (field) => (<>
                     <label htmlFor={field.name}>Name:</label>
                     <input type='text' id={field.name}
+                        className='w-full border-b-1 border-gray-200'
+                        placeHolder="new user name"
                         value={field.state.value}
                         onChange={ e=> field.handleChange(e.target.value)} />
                     </>)} />
@@ -57,11 +61,13 @@ function RouteComponent() {
                     children={ (field) => (<>
             <label htmlFor={field.name}>Email:</label>
                     <input type='email' id={field.name}
+                        className='w-full border-b-1 border-gray-200'
+                        placeHolder="new user name"
                         value={field.state.value}
                         onChange={ e=> field.handleChange(e.target.value)} />
                     </>)} />
         </div>
-        <div>
+        <div className='flex justify-around mx-8'>
             <form.Subscribe
                 selector={(state)=> [state.canSubmit,state.isSubmitting]}
                 children={ ([canSubmit,isSubmitting])=> (<>
