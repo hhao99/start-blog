@@ -35,6 +35,14 @@ This project is a web application built with TanStack Start and Drizzle ORM. It 
 
 ## Setup and Installation
 
+### Prerequest
+
+* NodeJS > 24
+* package manager pnpm > 11.0
+* vite build tools > 8.0
+  
+### Setup
+
 1. Clone the repository
 
 2. Install dependencies:
@@ -42,28 +50,30 @@ This project is a web application built with TanStack Start and Drizzle ORM. It 
 npm install
 ```
 3. Set up the database:
+···sh
 npm run generate
 npm run push
 ```
-
 4. Start the development server:
 ```sh
 npm run dev
 ```
 ### Available Scripts
 
-npm run dev: Start the development server
-npm run build: Build the production-ready application
-npm run start: Start the production server
-npm run generate: Generate Drizzle ORM schema
-npm run push: Push schema changes to the database
-npm run studio: Open Drizzle Studio for database management
-npm run format: Format code using Prettier
-Development
+- npm run dev: Start the development server
+- npm run build: Build the production-ready application
+- npm run start: Start the production server
+- npm run generate: Generate Drizzle ORM schema
+- npm run push: Push schema changes to the database
+- npm run studio: Open Drizzle Studio for database management
+- npm run format: Format code using Prettier
+
+### Development
 This project uses Vite for fast development and building. The development server will rebuild assets on file changes.
 
 ## Database
 The project uses SQLite with Drizzle ORM. The database schema is defined in drizzle/schema.ts. You can use Drizzle Studio to manage your database by running npm run studio.
+Drizzle ORM support mysql, postgresql database.
 
 ## Routing
 Routing is handled by TanStack Router. File based route, in the /src/routes directory.
@@ -97,15 +107,7 @@ Seamless handling of both client-side and server-side routing
 Environment Variables
 When running the production server, make sure to set any necessary environment variables. You can do this by creating a .env file in the root of your project or by setting them directly in your deployment environment.
 
-## Hosting Recommendations
-This Vinxi-powered application can be deployed to various Node.js-compatible hosting platforms, such as:
 
-Vercel
-Netlify
-DigitalOcean App Platform
-Heroku
-AWS Elastic Beanstalk
-Ensure that your chosen hosting platform supports Node.js and can run the npm run start command to start the server.
 
 ## Performance Considerations
 The production build is optimized for performance, but you may want to implement additional caching strategies or a CDN for static assets in a high-traffic production environment.
