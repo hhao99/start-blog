@@ -5,6 +5,19 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { type NewUser } from '#/db/schema'
 import { createUserFn } from '#/lib/users/apis'
 
+
+// shadcn
+import { 
+    Button, 
+    Input, 
+    Label,
+    Card, CardHeader, CardContent, CardFooter, CardTitle,
+    CardDescription,
+    FieldGroup,
+    Field, FieldLabel
+} from '#/components/ui'
+
+
 export const Route = createFileRoute('/users/new')({
   component: RouteComponent,
 })
@@ -25,62 +38,77 @@ function RouteComponent() {
         },
     })
     const defaultUser: NewUser = {
-        name: 'new user',
-        email: 'test-1@example.com'
+        name: '',
+        email: '@example.com'
     }
     const form = useForm({
         defaultValues: defaultUser,
         onSubmit: async ({ value}) => {
             //console.log(value)
             mutation.mutate({data: {user: value}})
+            form.reset()
         },
     })
-  return <div>
-    <h1>New User form</h1>
+  return <Card>
+    <CardHeader>
+        <CardTitle>New User form</CardTitle>
+        <CardDescription>Fill out the form to create a new user</CardDescription>
+    </CardHeader>
     
-    <div>
+    <CardContent>
         <form onSubmit={e=> {
             e.preventDefault()
             e.stopPropagation()
             form.handleSubmit()
         }}>
         <div>
-            
+            <FieldGroup>
             <form.Field name='name' 
-                children={ (field) => (<>
-                    <label htmlFor={field.name}>Name:</label>
-                    <input type='text' id={field.name}
-                        className='w-full border-b-1 border-gray-200'
+                children={ (field) => (<Field>
+                    <FieldLabel 
+                        className='flex text-lg text-bold gap-4'
+                        htmlFor={field.name}>Name:
+                    <Input type='text' id={field.name}
+                        
                         placeHolder="new user name"
                         value={field.state.value}
                         onChange={ e=> field.handleChange(e.target.value)} />
-                    </>)} />
+                    </FieldLabel>
+                    </Field>)} />
             
              <div>
                 <form.Field name='email'
-                    children={ (field) => (<>
-            <label htmlFor={field.name}>Email:</label>
-                    <input type='email' id={field.name}
-                        className='w-full border-b-1 border-gray-200'
-                        placeHolder="new user name"
+                    children={ (field) => (<Field>
+                    <FieldLabel 
+                    className='flex text-lg text-bold gap-4'
+                    htmlFor={field.name}>Email:
+                    <Input type='email' id={field.name} 
+                        placeHolder="new user email"
                         value={field.state.value}
                         onChange={ e=> field.handleChange(e.target.value)} />
-                    </>)} />
+                    </FieldLabel>
+                    </Field>)} />
         </div>
-        <div className='flex justify-around mx-8'>
+        </FieldGroup>
+        <CardFooter className='flex gap-4'>
             <form.Subscribe
                 selector={(state)=> [state.canSubmit,state.isSubmitting]}
                 children={ ([canSubmit,isSubmitting])=> (<>
-                    <button type='submit'>
+                    <Button type='submit' variant='outlin'
+                        >
                         {isSubmitting? 'submitting': 'Save'}
-                    </button>
-                    <button type='reset' onClick={(e)=> {e.preventDefault();form.reset(e)} }>reset</button>
+                    </Button>
+                    <Button type='reset' 
+                        onClick={(e)=> {
+                            e.preventDefault();
+                            form.reset()
+                         } }>reset</Button>
                     </>
                 )}
             />
-        </div>
+        </CardFooter>
         </div>
         </form>
-    </div>
-  </div>
+    </CardContent>
+  </Card>
 }
