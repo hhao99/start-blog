@@ -1,16 +1,16 @@
-TanStack Start blog example - updated 1st/Aug/2026
+# TanStack Start blog example 
+- updated 1st/Aug/2026
+
 This project is a web application built with TanStack Start and Drizzle ORM. It demonstrates a full-stack React application with routing, server-side rendering, and database integration.
 
 
-Features
-React 19 front ui
-Tanstack Router for the SPA routing
-Server-side rendering (SSR) support
-SQLite database integration using Drizzle ORM, easy switch to postgres/mysql
-Server Function for the database access
-Tanstack Query for the query 
-Tailwind CSS for styling
-Shadcn UI 
+## Features
+- Component based front ui
+- typesafe routing and query
+- Server-side rendering (SSR) support
+- Database access with ORM framework
+- Server Function for the database access
+
 
 ## Technologies Stack
 * React 19
@@ -35,20 +35,22 @@ Shadcn UI
 
 ## Setup and Installation
 
-Clone the repository
+1. Clone the repository
 
-Install dependencies:
+2. Install dependencies:
 ```sh
 npm install
-Set up the database:
+```
+3. Set up the database:
 npm run generate
 npm run push
 ```
-Start the development server:
+
+4. Start the development server:
 ```sh
 npm run dev
 ```
-Available Scripts
+### Available Scripts
 
 npm run dev: Start the development server
 npm run build: Build the production-ready application
@@ -86,7 +88,7 @@ npm run start
 ```
 This command starts the Vinxi server in production mode, serving your built application.
 
-Node.js Server
+### Node.js Server
 The built project runs on a Node.js server, which handles both serving the static assets and server-side rendering (SSR) of your React application. This setup provides several benefits:
 
 Improved initial page load times due to server-side rendering
