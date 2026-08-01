@@ -25,13 +25,13 @@ This project is a web application built with TanStack Start and Drizzle ORM. It 
 * Vite
 
 # Project Structure
-/src/routes: route comoent 
-/components: Reusable React components
-/routes: Route components and API handlers
-/styles: CSS styles, including Tailwind configuration
-/lib: Utility functions and services
-/drizzle: Database schema and migrations
-/public: Static assets
+- /src/routes: route comoent 
+- /components: Reusable React components
+- /routes: Route components and API handlers
+- /styles: CSS styles, including Tailwind configuration
+- /lib: Utility functions and services
+- /drizzle: Database schema and migrations
+- /public: Static assets
 
 ## Setup and Installation
 
