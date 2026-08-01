@@ -50,7 +50,7 @@ This project is a web application built with TanStack Start and Drizzle ORM. It 
 npm install
 ```
 3. Set up the database:
-···sh
+```sh
 npm run generate
 npm run push
 ```
@@ -58,6 +58,7 @@ npm run push
 ```sh
 npm run dev
 ```
+
 ### Available Scripts
 
 - npm run dev: Start the development server
