@@ -54,7 +54,7 @@ npm install
 npm run generate
 npm run push
 ```
-4. Start the development server:
+1. Start the development server:
 ```sh
 npm run dev
 ```
