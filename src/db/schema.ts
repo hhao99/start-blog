@@ -3,7 +3,7 @@ import { sql } from 'drizzle-orm'
 
 
 
-export const usersTable = sqliteTable('users', {
+export const users = sqliteTable('users', {
   id: integer({ mode: 'number' }).primaryKey({
     autoIncrement: true,
   }),
@@ -14,5 +14,5 @@ export const usersTable = sqliteTable('users', {
   ),
 })
 
-export type User = typeof usersTable.$inferSelect
-export type NewUser = typeof usersTable.$inferInsert
+export type User = typeof users.$inferSelect
+export type NewUser = typeof users.$inferInsert
