@@ -1,5 +1,8 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3'
+import 'dotenv/config'
+import { drizzle } from 'drizzle-orm/libsql'
+import { createClient } from '@libsql/client'
 
-import * as schema from './schema.ts'
+const client = createClient({ url: process.env.DATABASE_URL! })
 
-export const db = drizzle(process.env.DATABASE_URL!, { schema })
+export const db = drizzle(client)
+
