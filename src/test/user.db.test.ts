@@ -13,7 +13,7 @@ describe('userdb', () => {
         expect(result).toBeDefined()
         if (result) {
             expect(result.id).toBe(1)
-            expect( result.name).toBeDefined()
+            expect( result.name).toBe('eric')
 
         }
     })

@@ -1,8 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getAllUsers, getUserById, createUser } from "./functions";
 import type { NewUser } from "#/db/schema";
+import logging  from "#/lib/middleware/logging";
 
 export const getAllUsersFn = createServerFn({ method: 'GET'})
+    .middleware([logging])
     .handler( async ()=> getAllUsers() )
 
 export const getUserByIdFn = createServerFn({ method: 'GET'})
