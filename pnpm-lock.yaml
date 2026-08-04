@@ -60,8 +60,11 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       drizzle-orm:
-        specifier: ^0.45.1
+        specifier: ^0.45.2
         version: 0.45.2(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)
+      drizzle-zod:
+        specifier: ^0.8.3
+        version: 0.8.3(drizzle-orm@0.45.2(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1))(zod@4.4.3)
       lucide-react:
         specifier: ^1.28.0
         version: 1.28.0(react@19.2.8)
@@ -127,7 +130,7 @@ importers:
         specifier: ^17.3.1
         version: 17.4.2
       drizzle-kit:
-        specifier: ^0.31.9
+        specifier: ^0.31.10
         version: 0.31.10
       jsdom:
         specifier: ^30.0.1
@@ -2538,6 +2541,12 @@ packages:
         optional: true
       sqlite3:
         optional: true
+
+  drizzle-zod@0.8.3:
+    resolution: {integrity: sha512-66yVOuvGhKJnTdiqj1/Xaaz9/qzOdRJADpDa68enqS6g3t0kpNkwNYjUuaeXgZfO/UWuIM9HIhSlJ6C5ZraMww==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.0'
+      zod: ^3.25.0 || ^4.0.0
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -6264,6 +6273,11 @@ snapshots:
       '@libsql/client': 0.17.4
       '@types/better-sqlite3': 7.6.13
       better-sqlite3: 12.11.1
+
+  drizzle-zod@0.8.3(drizzle-orm@0.45.2(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1))(zod@4.4.3):
+    dependencies:
+      drizzle-orm: 0.45.2(@libsql/client@0.17.4)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)
+      zod: 4.4.3
 
   dunder-proto@1.0.1:
     dependencies:
